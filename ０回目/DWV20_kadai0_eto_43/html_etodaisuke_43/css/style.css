@@ -1,0 +1,628 @@
+/* ここから下に記載していく */
+
+
+
+
+/* ここに書いていきます */
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    background: lemonchiffon;
+    align-items: center;
+}
+
+ul.header__nav {
+    display: flex;
+}
+
+
+
+.header__nav li {
+    margin-left: 40px;
+}
+
+/* mainvisual */
+.mainvisual{
+    height : 400px;
+    /* 背景画像を使う場合は background: url("xxx") */
+    background: url("../img/mainbg.png");
+    /* 下記の３つは背景画像を使う時は基本必要とのこと*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*これはセカイを変えるチーズを作ろう*/
+.mainvisual_title{
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;   
+    padding-top: 200px;
+}
+/*これはチーズ職人養成学校「チーズアカデミーTOKYO」*/
+.mainvisual_subtitle{
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/*ここから下はAbout部分*/
+.about{
+    text-align: center;
+    margin: 50px 0;
+}
+
+.about_title{
+    font-size: 30px;
+    font-weight: bold;
+    color: crimson;
+    margin-bottom: 20px;
+}
+
+.about_subtitle{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.about_text{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*　画像4つ */
+.imgBox{
+    /*　flexは画像を横並びにする　*/
+    /*　この時点で横に並ぶ */
+    display: flex;
+    margin-bottom: 50px;
+    
+}
+
+/*　画面のはじが足りていないのはimgタグに対しておまじないが足りていないため */
+/*　imgBoxの中にあるpタグにだけ攻撃する書き方 */
+.imgBox p{
+    /*　画面の端から端までを100％と考える */
+    /*　写真４枚なら100/4=25%, 5枚なら100/5=20% */
+    /*　これを[p]タグのwidth(幅)にする */
+    width: 25%;
+    
+}
+
+/*　imgBoxの中にあるpタグの中のimgに対して攻撃する書き方 */
+
+.imgBox p img{
+    /*　画像を利用する際はwidth;100%を使うテクニック */
+    width: 100%;
+}
+
+/* コースのところ */
+.Course{
+    margin: 50px 0;
+    background: lemonchiffon;
+}
+
+.Course_title{
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: crimson;
+}
+
+.Course_text{
+    font-size: 16px;
+    text-align: center;
+    font-weight: initial;
+    margin-bottom: 20px;
+    color: black;
+    line-height: 1.8;
+    /*行間を調整するおまじない*/
+
+}
+
+/*ここから一つ目*/
+.imgCourseA{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.inner_imgCourseA{
+    width: 50%;
+
+}
+
+.inner_imgCourseA img{
+    width: 100%;
+
+}
+
+
+.inner_textA h5{
+    margin-top: 120px;
+    margin-left: 50px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px;
+}
+
+.inner_textA{   
+    text-align: left;
+    font-size: 16px;
+    margin: 10px;
+}
+
+
+
+
+/* ここから二つ目*/
+.imgCourseB{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+
+.inner_textB h6{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px;
+}
+
+.inner_textB{   
+    font-size: 16px;
+    margin: 10px;
+}
+
+.inner_imgCourseB{
+    width: 50%;
+
+}
+
+.inner_imgCourseB img{
+    width: 100%;
+
+}
+
+
+
+/* ここから三つ目*/
+.imgCourseC{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.inner_imgCourseC{
+    width: 50%;
+
+}
+
+.inner_imgCourseC img{
+    width: 100%;
+
+}
+
+/* ↓h７が反応しないNews*/
+.inner_textC h7{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px;}
+
+.inner_textC{   
+    font-size: 16px;
+    margin: 10px;
+}
+
+/* News　改良版*/
+
+
+/*btn*/
+.btn-outer{
+	margin: 0;
+	text-align: center;
+}
+.btn{
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	display: block;
+	width: 264px;
+	margin: 0 auto;
+	padding:22px 0;
+	border-radius: 0;
+	background-color: #ffd61a;
+	color: #fff;
+	font-size: 1.6rem;
+	text-align: center;
+	line-height: 1;
+	text-decoration: none;
+}
+.btn-submit{
+	border: none;
+	width: 298px;
+	padding: 18px 0;
+	font-size: 1.8rem;
+}
+.btn-mobileMenu{
+	display: none;
+}
+
+/*------------------------
+ *	
+ *	access
+ *	
+-------------------------*/
+/*map*/
+.maps-outer{
+	position: relative;
+	margin:0 0 64px;
+	padding-bottom: 23.419%;
+	height: 0;
+}
+.maps{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* access list */
+.access{
+	display: flex;
+	justify-content: center;
+}
+.access-list{
+
+}
+.access-list__item{
+	display: flex;
+	width: 100%;
+	margin: 0 0 20px;
+}
+.access-list__item-title{
+	width: 97px;
+	margin-right: 24px;
+	font-weight: bold;
+	text-align: right;
+
+}
+.access-list__item-detail{
+	color: #707070;
+}
+.access-list__item-detail>a{
+	color: #707070;
+}
+/*--------------
+ * form
+ *--------------*/
+ .form{
+	width: 640px;
+	margin: auto;
+ }
+.form-list{
+
+	margin-bottom: 30px;
+	padding-left: 0;
+	list-style: none;
+}
+.form-item{
+	display: flex;
+	align-items: center;
+	margin: 0 0 24px;
+}
+.form-item__radio{
+	align-items: flex-start;
+	margin:40px 0 32px;
+}
+.form-item__textarea{
+	align-items: flex-start;
+	margin: 0 0 40px;
+}
+.form-label{
+	box-sizing:  border-box;
+	display: block;
+	flex: 0 0 110px;
+	width: 110px;
+	margin: 0 24px 0 0;
+	text-align: right;
+	font-weight: bold;
+}
+.form-label__textarea{
+	padding-top: 16px;
+}
+
+.form-detail{
+	vertical-align: middle;
+}
+
+.form-parts{
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	width: 388px;
+	padding: 8px 8px;
+	border: solid 1px #AAAAAA;
+	border-radius: 0;
+	vertical-align: top;
+	font-size: 1.6rem;
+	box-sizing:  border-box;
+}
+
+.form-choose{
+	padding-left: 0;
+	list-style: none;
+}
+.form-choose>li{
+	margin:0 0 24px;
+	font-size: 1.4rem;
+	white-space: nowrap;
+}
+.form-choose>li:last-of-type{
+	margin-bottom: 0;
+}
+.form-radio{
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	width: 16px;
+	height: 16px;
+	margin:0 24px 0 0;
+	border: none;
+	border-radius: 50%;
+	background-color: #EEEEEE;
+	vertical-align: -3px;
+}
+
+/*--------------
+ * footer
+ *--------------*/
+.footer{
+	padding: 32px 0;
+	background: #707070;
+	font-size: 1.4rem;
+	color: #fff;
+}
+
+
+
+
+/* News改良版　以上*/
+
+
+
+
+
+
+
+
+/* News*/
+
+.newsBox{
+    text-align: center;
+    margin: 50px 0;
+}
+
+
+.newsBox_title{
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: crimson;
+}
+
+.newsBox_subtitle{
+    margin-bottom: 60px;
+}
+
+.newsList{
+    display: flex;
+    justify-content: space-between;
+    width: 960px;
+    margin: 0 auto;
+
+}
+
+.newslist_item{
+    width: 300px;
+}
+
+/* More*/
+
+.More{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.More_title {
+    display: inline-block;
+    width: 300px;
+    text-align: center;
+    background-color: #f7d034;
+    border-radius: 4px;
+    color: #fff;
+    line-height: 52px;
+    -webkit-transition: none;
+    transition: none;
+    box-shadow: 0 3px 0 #f7ba59;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+  }
+  .More:hover {
+    top: -4px;
+    box-shadow: 0 7px 0 #f7ba59;
+  }
+  .More:active {
+    top: 3px;
+    box-shadow: none;
+  }
+
+/* Access*/
+
+.Access{
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 60px;
+}
+
+.Access_title{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 30px;
+
+}
+
+.Access_subtitle {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+/*地図の埋め込み*/   
+
+.gmap {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    }
+.gmap iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    }
+
+/*会社情報*/   
+.kaisha {
+    width: 100%;
+    text-align: center;
+    }
+    
+    .kaisha th,
+    .kaisha td {
+    border: 1px solid #ccc;
+    padding: 20px;
+    }
+    
+    .kaisha th {
+    font-weight: bold;
+    background-color: #dedede; 
+    }
+    
+    @media screen and (max-width: 767px) {
+    .kaisha,
+    .kaisha tr,
+    .kaisha td,
+    .kaisha th {display:block;}
+    .kaisha th {width:auto;}
+    }
+
+/*Contact*/   
+.Contact{
+    margin: 50px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.Contact_title{
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+
+    margin-bottom: 30px;
+    color: crimson;
+}
+
+.Contact_subtitle{
+    text-align: center;
+    margin-bottom: 60px;
+}
+.Contact_text{
+    font-size: 16px;
+    text-align: center;
+    font-weight: initial;
+    margin-bottom: 20px;
+    color: black;
+    line-height: 1.8;
+}
+
+
+/*文章フォーム*/
+.formBox{
+    border-collapse: collapse;
+    width: 100%;
+}
+   
+   
+  .formBox dt,
+  .formBox dd {
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    padding: 20px;
+  }
+   
+  .formBox dt {
+    background: #ffecea;
+    padding-left: 50px;
+    position: relative;
+    text-align: left;
+    width: 300px;
+  }
+
+
+
+
+/*送信*/
+.Send{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 140px;
+}
+
+.Send_title {
+    display: inline-block;
+    width: 300px;
+    text-align: center;
+    background-color: #f7d034;
+    border-radius: 4px;
+    color: #fff;
+    line-height: 52px;
+    -webkit-transition: none;
+    transition: none;
+    box-shadow: 0 3px 0 #f7ba59;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+  }
+  .Send:hover {
+    top: -4px;
+    box-shadow: 0 7px 0 #f7ba59;
+  }
+  .Send:active {
+    top: 3px;
+    box-shadow: none;
+  }
+
+
+/*最下段のCopyrights*/
+.copy{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+    background-color:#707070; /* 背景色指定 */
+}
+
+
