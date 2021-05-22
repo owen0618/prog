@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/main.css">
+
+
+</head>
+
+<body>
+   
+
+        <div id="app">
+          <h1>ToDoリスト</h1>
+          
+          <!-- フォームの作成 -->
+          <label v-for="label in options" >
+            <input type="radio"
+              v-model="current"
+              v-bind:value="label.value">{{ label.label }}
+          </label>
+            
+          <!-- length-->
+          （{{ computedTodos.length }} 件を表示）
+      
+          <!-- リスト用テーブル -->
+          <table>
+            <thead v-pre>
+              <tr>
+                <th class="id">No.</th>
+                <th class="comment">タスク</th>
+                <th class="state">ステータス</th>
+                <th class="button">削除</th>
+              </tr>
+            </thead>
+            <tbody> 
+                
+              <!-- ToDo の要素をループ -->
+              <tr
+                v-for="item in computedTodos"
+                v-bind:key="item.id"
+                v-bind:class="{done:item.state}">
+                <th>{{ item.id }}</th>
+                <td>{{ item.comment }}</td>
+                <td class="state">
+                  <!-- 状態変更ボタン -->
+                  <button v-on:click="doChangeState(item)">
+                    {{ labels[item.state] }}
+                  </button>
+                </td>
+                <td class="button">
+                  <!-- 削除ボタン -->
+                  <button v-on:click="doRemove(item)">
+                    削除
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+              
+        
+          <!--新しいタスクの追加-->
+          <h2>新しいタスクの追加</h2>
+          <form class="add-form" v-on:submit.prevent="doAdd">
+            <!-- コメント入力フォーム -->
+            タスク <input type="text" ref="comment">
+            <!-- 追加ボタンのモック -->
+            <button type="submit">追加</button>
+          </form>
+        </div>
+      
+         <!-- ↓検索していた中で、参考サイトから引用しました -->
+        <script src="https://cdn.jsdelivr.net/npm/vue">
+        var STORAGE_KEY = 'todos-vuejs-demo'
+        var todoStorage = {
+            fetch: function () {
+                var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+                todos.forEach(function (todo, index) {
+                    todo.id = index
+    })
+        todoStorage.uid = todos.length
+        return todos
+    },
+    
+    save: function (todos) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+      }
+}
+        </script>
+
+
+<script src="js/jquery-2.1.3.min.js">
+
+        </script>
+      </body>
+      </html>
+    
+</body>
+
+</html>
