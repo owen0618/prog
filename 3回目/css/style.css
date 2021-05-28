@@ -1,0 +1,138 @@
+.container {
+    width: 70%;
+    margin: 20px auto;
+  }
+
+
+  /* メッセージの入力部分は高さを7vhにして、テキストエリアとボタンをflexで横並びにする*/
+  .message-area {
+    height: 10vh;
+    display: flex;
+    font-size: 1.0rem;
+  }
+
+  /* テキストエリアは60%で表示 */
+  .message-area-text {
+    width: 80%;
+  }
+
+  /* テキストエリアは20%で表示 */
+  .message-area-button {
+    width: 20%;
+  }
+
+  /* テキストエリアはリサイズをできなくして、横幅いっぱいに表示 */
+  .message-area-text textarea {
+    width: 100%;
+    height: 100%;
+    resize: none; /* これでユーザーのリサイズをできなくする */
+    border: 1px solid #ddd; /* 枠線をつけて領域を分かりやすく */
+    box-sizing: border-box; /* borderを付けてるので、border込の大きさにする */
+  }
+
+  /* ボタンは上下左右を全体に広げる */
+  .message-area-button button {
+    width: 100%;
+    height: 100%;
+    background: crimson;
+    color: #fff;
+    font-size: 2.0rem;
+    font-weight: bold;
+    border: 0;
+  }
+
+  /* チャットの時間とメッセージを囲うdiv */
+  .message-container {
+    display: flex;
+    margin: 0 10px;
+  }
+
+  /* 相手のメッセージの場合、左寄せにしたい */
+  .message-container-you {
+    justify-content: flex-start;
+  }
+
+  /* 自分のメッセージの場合、右寄せにしたい */
+  .message-container-me {
+    justify-content: flex-end;
+  }
+
+  /* チャットの送信時間 */
+  .chat-time {
+    color: #33415B; /* 少し薄いグレー */
+    align-self: flex-end; /* 時間は最下部に表示する */
+  }
+
+  /* 相手の場合は、送信時間をメッセージの後に持ってくる*/
+  .message-container-you .chat-time {
+    order: 2; /* orderを2指定することで、flex-boxの中で最後に配置する */
+    margin-left : 10px;
+  }
+
+  .message-container-me .chat-time {
+    margin-right : 10px;
+  }
+
+  /* 入力した文字を表示する部分 */
+  .chat-message {
+    max-width: 300px;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-weight: bold;
+    color: #001A32;
+  }
+
+  /* 相手のメッセージは背景を白くする */
+  .message-container-you .chat-message {
+    background: #fff;
+  }
+
+  /* 自分のメッセージは背景を緑にする */
+  .message-container-me .chat-message {
+    background: chocolate;
+  }
+
+
+  .message-person {
+    display: flex;
+    margin: 5px 0;
+  }
+
+  /* ラジオボタンはラベルで表現するので非表示にする */
+  .message-person input {
+    display: none;
+  }
+
+  .message-person label {
+    display: block;
+    cursor: pointer;
+    width: 60px;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 10px;
+    background: #BDC3C7;
+    color: #fff;
+  }
+
+  /* チェックが入ってる方のラジオボタンの隣のlabelを背景緑にする */
+  .message-person input[type="radio"]:checked + label {
+    background: rgb(240, 119, 143);
+  }
+
+
+  /* チャットの表示領域はスクロール可能にする */
+  .chat-area {
+    height: 100vh;
+    background: rgb(238, 245, 196);
+    overflow: scroll;
+  }
+
+  .resetbutton{      
+    text-align: center; 
+    background: crimson;
+    color: #fff;
+    font-size: 2.0rem;
+    font-weight: bold;
+    border: 0;
+
+}

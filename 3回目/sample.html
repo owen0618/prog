@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>LINE風チャットアプリ
+ </title>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="css/style.css">
+ 
+</head>
+
+<body>
+
+ <div class="container">
+    <div class="message-person">
+        <input id="me" type="radio" value="me" name="person" checked="checked">
+        <label for="me">P1</label>
+        <input id="you" type="radio" value="you" name="person">
+        <label for="you">P2</label>
+    </div>
+
+    <div class="message-area">
+        <div class="message-area-text">
+          <textarea id="text"></textarea>
+        </div>
+        <div class="message-area-button">
+          <button id="send" class="disabled-button">Send</button>
+        </div>
+    </div>
+    
+    <div class="chat-area"></div>
+    
+    
+   
+  </div>
+ 
+  <script type="text/javascript">
+  $(function() {
+    $('.message-area-text').on('keypress', (e) => {
+      if (e.which === 13) {
+        addChat()
+        return false; // falseしないと、本来のEnter(改行)が実行されてしまう
+      }
+    })
+ 
+    // 送信ボタンがクリックされたら
+    $('#send').on('click', addChat)
+ 
+    function addChat() {
+      // テキストエリア内の文字を取得する
+      const messageText = $('#text').val()
+ 
+      // テキストが空の状態では何もせずに終わらせる
+      if (messageText === '') {
+        return false;
+      }
+ 
+      // チャットエリアの要素を取得
+      const chatArea = $('.chat-area')
+ 
+      // メッセージを表示するdiv要素
+      const messageContainer = $('<div></div>').addClass('message-container')
+ 
+      // 自分 or 相手どちらにメッセージを送る予定かを取得
+      const messagePerson = $('input[name="person"]:checked').val()
+ 
+      // 自分の時は自分用のメッセージのクラスをつける
+      if (messagePerson === 'me') {
+        messageContainer.addClass('message-container-me')
+      } else {
+        // 相手の時は相手用のメッセージのクラスをつける
+        messageContainer.addClass('message-container-you')
+      }
+ 
+      // チャットメッセージ用の装飾をしたクラスを当てたpタグを追加
+      const message = $('<p></p>').addClass('chat-message').text(messageText)
+ 
+      // 現在時間のDateオブジェクトを取得する
+      const nowDate = new Date()
+      const hour    = (nowDate.getHours() >= 10) ? nowDate.getHours() : '0' + nowDate.getHours()
+      const minutes    = (nowDate.getMinutes() >= 10) ? nowDate.getMinutes() : '0' + nowDate.getMinutes()
+ 
+      // 現在時間
+      const nowTime = hour + ':' + minutes
+ 
+      // 現在時間を表現するpタグを用意
+      const sendTime = $('<p></p>').text(nowTime).addClass('chat-time')
+ 
+      // divの中に、送信時間とメッセージを追加する
+      messageContainer.append(sendTime).append(message)
+ 
+      chatArea.append(messageContainer)
+ 
+      // 常に最下部までスクロールしておく
+      chatArea.scrollTop(chatArea[0].scrollHeight)
+ 
+      // textを空にする
+      $('#text').val('') // 空文字を指定すれば上書きされる
+    }
+  })
+
+
+  
+ 
+  </script>
+
+<div class="resetbutton">
+    <button type="button" onclick="window.location.reload();">Reset</button>
+
+</div>
+ 
+  <!--/ コンテンツ表示画面 -->
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- JQuery -->
+
+  <!--** 以下Firebase **-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- 8.6.2に該当する箇所はfirebaseのバージョンですので更新されるたびに随時変わります🤗 -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD1Xv8B-58NJJ09qnCDmJyAoO-XUTqSEZo",
+      authDomain: "dev20chat-aa6be.firebaseapp.com",
+      databaseURL: "https://dev20chat-aa6be-default-rtdb.firebaseio.com/",
+      projectId: "dev20chat-aa6be",
+      storageBucket: "dev20chat-aa6be.appspot.com",
+      messagingSenderId: "353554247507",
+      appId: "1:353554247507:web:69ce6a644c2159cdabfba6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    //firebaseのデーターベース（保存させる場所）を使いますよ
+    const newPostRef = firebase.database().ref();
+
+    // ここから下にjqueryの処理を書いて練習します
+
+    // 送信ボタンをクリックされたら次の処理をする
+   // $("#send").on("click", function () {
+
+     // let username = $("#username").val();
+      //if (username === ""){
+        //alert("入力されていません")　//アラート機能     }
+
+
+      //記述１
+      //データを登録で送る
+//      newPostRef.push({
+        //username:$("#username").val(),//名前
+        //text: $("#text").val()//テキストエリア      })
+//      $("#username").val("")　//空にする
+  //    $("#text").val("")　//空にする
+
+    //});
+
+    // 受信処理
+    //newPostRef.on("child_added", function (data) {
+      //let v = data.val();　// ここに保存されたデータが全て入ってくる
+      //let k = data.key;　// 今回は使いません
+
+      // console.logでFirebaseで受信できているか確認(データの塊のアクセス)
+      //console.log(v)
+
+      // テンプレートリテラル``を活用して変数にhtmlを埋め込もう
+
+
+      //let str = `<p>${v.username}<br>${v.text}<p>`;
+      
+      //ここにデータをhtmlに埋め込む　prependには変数を埋め込もう
+      //$("#output").prepend(str);
+
+    //})
+
+    
+    //eventのe
+
+    //$("#text").on("keydown", function (e) {
+      
+      //console.log(e, 'eventデータの塊');
+
+      //if(e.keyCode === 13) {
+        //newPostRef.push({
+          //username:$("#username").val(),//名前
+          //text: $("#text").val()//テキストエリア       }        )
+      //$("#username").val("")　//空にする
+      //$("#text").val("")　//空にする
+      //}
+
+    //});
+        
+    
+    
+
+
+
+  </script>
+</body>
+
+</html>
